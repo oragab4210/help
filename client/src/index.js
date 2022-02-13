@@ -33,12 +33,12 @@ const init = async () => {
 //   cache: cache,
 //   connectToDevTools: true,
 // });
-const httpLink = new HttpLink({
-  uri: `http://localhost:${process.env.REACT_APP_GRAPHQL_PORT}/graphql`,
-});
+const httpLink = new HttpLink({ uri: "http://localhost:80/graphql" });
 const client = new ApolloClient({
   link: new HttpLink({
+    // uri: `${process.env.REACT_APP_CLIENT_URL}/graphql`,
     link: httpLink,
+    // credentials: "include",
   }),
   cache: cache,
   connectToDevTools: true,

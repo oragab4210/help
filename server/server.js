@@ -46,7 +46,7 @@ app.use(
     resave: true,
     saveUninitialized: true,
     credentials: "include",
-    secret: process.env.SESSION_SECRET,
+    secret: `${process.env.SESSION_SECRET}`,
     store: MongoStore.create({
       mongoUrl: MONGO_URI,
       autoReconnect: true,
