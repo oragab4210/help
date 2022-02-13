@@ -143,7 +143,8 @@ io.on("connection", (socket) => {
 });
 
 /* --------------------------- RUN SERVER ON PORT --------------------------- */
-const port = process.env.PORT || 4000;
+console.log(process.env.PORT);
+const port = process.env.PORT || 80;
 server.listen(port, () => {
   console.log("Listening on port: ", port);
 });
