@@ -15,6 +15,7 @@ import {
 import { persistCache, LocalStorageWrapper } from "apollo3-cache-persist";
 import CurrentUser from "./GQL/queries/CurrentUser";
 import setUser from "./GQL/queries/setUser";
+require("dotenv").config();
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 const cache = new InMemoryCache();
@@ -25,7 +26,9 @@ const init = async () => {
   });
 };
 
-const httpLink = new HttpLink({ uri: "http://localhost:80/graphql" });
+const httpLink = new HttpLink({
+  uri: `http://localhost:${REACT_APP_GRAPHQL_PORT}/graphql`,
+});
 const client = new ApolloClient({
   link: new HttpLink({
     // uri: `${process.env.REACT_APP_CLIENT_URL}/graphql`,

@@ -9,7 +9,7 @@ require("dotenv").config();
 const NEW_MESSAGE_EVENT = "newMessage";
 console.log(process.env.REACT_APP_SOCKET_SERVER_URL);
 // const SOCKET_SERVER_URL = `${process.env.REACT_APP_SOCKET_SERVER_URL}`;
-const SOCKET_SERVER_URL = `http://test.omarragab.com`;
+const SOCKET_SERVER_URL = `${process.env.REACT_APP_SOCKET_SERVER_URL}`;
 
 const useChatRoom = () => {
   const previousMessages = useAppSelector(
