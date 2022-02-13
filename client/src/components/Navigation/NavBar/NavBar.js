@@ -13,6 +13,7 @@ import mutation from "../../../GQL/mutations/Logout";
 import ProfileDropdownInitiator from "../ProfileDropdownInitiator/ProfileDropdownInitiator";
 import TestDropDown from "../TestDropDown/TestDropDown";
 import socketIOClient from "socket.io-client";
+require("dotenv").config();
 
 const SOCKET_SERVER_URL = `${process.env.REACT_APP_SOCKET_SERVER_URL}`;
 
@@ -38,6 +39,7 @@ const NavBar = () => {
     if (navShow && currentUser.id) {
       console.log("working");
       console.log("environ", process.env.REACT_APP_SOCKET_SERVER_URL);
+      console.log("brooo");
       socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
         transports: ["websocket"],
         rejectUnauthorized: false,

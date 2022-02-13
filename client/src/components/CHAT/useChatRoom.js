@@ -4,6 +4,7 @@ import { sha256, sha224 } from "js-sha256";
 import { useAppSelector, useAppDispatch } from "../../redux/hooks";
 import { useQuery, useMutation } from "@apollo/client";
 import useMessages from "./useMessages";
+require("dotenv").config();
 
 const NEW_MESSAGE_EVENT = "newMessage";
 console.log(process.env.REACT_APP_SOCKET_SERVER_URL);
