@@ -27,7 +27,7 @@ const init = async () => {
 };
 
 const httpLink = new HttpLink({
-  uri: `http://localhost:${REACT_APP_GRAPHQL_PORT}/graphql`,
+  uri: `http://localhost:${process.env.REACT_APP_GRAPHQL_PORT}/graphql`,
 });
 const client = new ApolloClient({
   link: new HttpLink({
