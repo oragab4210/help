@@ -59,6 +59,7 @@ app.use(passport.session());
 /* ------------------------------- cors setup ------------------------------- */
 let corsOptions;
 if (process.env.PORT) {
+  app.use(cors());
 } else {
   corsOptions = {
     origin: "http://localhost:3000",
