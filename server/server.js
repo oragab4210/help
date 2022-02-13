@@ -57,16 +57,17 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 /* ------------------------------- cors setup ------------------------------- */
-let corsOptions;
-if (process.env.PORT) {
-  app.use(cors());
-} else {
-  corsOptions = {
-    origin: "http://localhost:3000",
-    credentials: true,
-  };
-  app.use(cors(corsOptions));
-}
+// let corsOptions;
+// if (process.env.PORT) {
+//   app.use(cors());
+// } else {
+//   corsOptions = {
+//     origin: "http://localhost:3000",
+//     credentials: true,
+//   };
+//   app.use(cors(corsOptions));
+// }
+app.use(cors());
 
 // const corsOptions = {
 //   origin: "http://localhost:3000",
