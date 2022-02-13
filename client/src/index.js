@@ -24,11 +24,21 @@ const init = async () => {
     storage: window.localStorage,
   });
 };
-console.log("hi", process.env.REACT_APP_GRAPHQL_PORT);
+// console.log("hi", process.env.REACT_APP_GRAPHQL_PORT);
+// const client = new ApolloClient({
+//   link: new HttpLink({
+//     uri: `http://localhost:${process.env.REACT_APP_GRAPHQL_PORT}/graphql`,
+//     credentials: "include",
+//   }),
+//   cache: cache,
+//   connectToDevTools: true,
+// });
+const httpLink = new HttpLink({
+  uri: `http://localhost:${process.env.REACT_APP_GRAPHQL_PORT}/graphql`,
+});
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: `http://localhost:${process.env.REACT_APP_GRAPHQL_PORT}/graphql`,
-    credentials: "include",
+    link: httpLink,
   }),
   cache: cache,
   connectToDevTools: true,
