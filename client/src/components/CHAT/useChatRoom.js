@@ -6,6 +6,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import useMessages from "./useMessages";
 
 const NEW_MESSAGE_EVENT = "newMessage";
+console.log(process.env.REACT_APP_SOCKET_SERVER_URL);
 const SOCKET_SERVER_URL = `${process.env.REACT_APP_SOCKET_SERVER_URL}`;
 
 const useChatRoom = () => {
