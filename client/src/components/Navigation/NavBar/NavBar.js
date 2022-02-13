@@ -13,7 +13,7 @@ import mutation from "../../../GQL/mutations/Logout";
 import ProfileDropdownInitiator from "../ProfileDropdownInitiator/ProfileDropdownInitiator";
 import TestDropDown from "../TestDropDown/TestDropDown";
 import socketIOClient from "socket.io-client";
-console.log("environ", process.env.REACT_APP_SOCKET_SERVER_URL);
+
 const SOCKET_SERVER_URL = `${process.env.REACT_APP_SOCKET_SERVER_URL}`;
 
 const NavBar = () => {
@@ -37,6 +37,7 @@ const NavBar = () => {
   useEffect(() => {
     if (navShow && currentUser.id) {
       console.log("working");
+      console.log("environ", process.env.REACT_APP_SOCKET_SERVER_URL);
       socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
         transports: ["websocket"],
         rejectUnauthorized: false,
