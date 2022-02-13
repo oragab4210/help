@@ -15,7 +15,8 @@ import TestDropDown from "../TestDropDown/TestDropDown";
 import socketIOClient from "socket.io-client";
 require("dotenv").config();
 
-const SOCKET_SERVER_URL = `${process.env.REACT_APP_SOCKET_SERVER_URL}`;
+// const SOCKET_SERVER_URL = `${process.env.REACT_APP_SOCKET_SERVER_URL}`;
+const SOCKET_SERVER_URL = `http://test.omarragab.com`;
 
 const NavBar = () => {
   const { pathname } = useLocation();

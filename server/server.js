@@ -49,7 +49,7 @@ app.use(
     resave: true,
     saveUninitialized: true,
     credentials: "include",
-    secret: `${process.env.SESSION_SECRET}`,
+    secret: "1234",
     store: MongoStore.create({
       mongoUrl: MONGO_URI,
       autoReconnect: true,
@@ -60,25 +60,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 /* ------------------------------- cors setup ------------------------------- */
-// let corsOptions;
-// if (process.env.PORT) {
-//   app.use(cors());
-// } else {
-//   corsOptions = {
-//     origin: "http://localhost:3000",
-//     credentials: true,
-//   };
-//   app.use(cors(corsOptions));
-// }
-app.use(cors());
-
 // const corsOptions = {
-//   origin: "http://localhost:3000",
+//   // origin: `${process.env.CLIENT_URL}:4000`,
+//   origin: `*`,
 //   credentials: true,
 // };
 // app.use(cors(corsOptions));
-
-// app.use(cors("*"));
+app.use(cors());
 /* ----------------------------- GraphQL Options ---------------------------- */
 
 app.use(express.json());
@@ -146,7 +134,6 @@ io.on("connection", (socket) => {
 });
 
 /* --------------------------- RUN SERVER ON PORT --------------------------- */
-console.log(process.env.PORT);
 const port = process.env.PORT || 80;
 server.listen(port, () => {
   console.log("Listening on port: ", port);
